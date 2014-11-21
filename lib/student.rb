@@ -1,24 +1,23 @@
 class Student
 
-	 attr_reader :student
+	 # attr_reader :student
+	
+	def initialize(student)
+	 	 	@badges = []
+	  end
 
-	 # def initialize(student)
-	 # 	@student = student
-	 # end
+	def award(badge)
+		@badges << badge
+		self.class.send(:define_method, "has_#{badge}?"){return true}
+	end
 
+	 
 
-
- # def self.method_missing(name)
- #    return new(AWARD[name]) if AWARD[name]
- #    super
- #  end
-
-  def method_missing(name)
-    if name.to_s.end_with?("?")
-
-      self.class.send(:define_method, name){false}
-      self.send(name)
-   end
-
-
+ 	def method_missing(method_name)
+    	if method_name =~ /^has_/+?\?/
+    		return false
+    		else
+    			super
+    		end
+    	end
 end
