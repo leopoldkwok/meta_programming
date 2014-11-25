@@ -20,13 +20,13 @@ How to set it up
 -----------------
 
 ```sh
-git clone git@github.com:leopoldkwok/meta_programming.git
-cd meta_programming
+$ git clone git@github.com:leopoldkwok/meta_programming.git
+$ cd meta_programming
 ```
 
 How to run tests
 ----------------
 
 ```sh
-rspec
+$ rspec
 ```
